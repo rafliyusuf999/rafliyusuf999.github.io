@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grid Layout</title>
+<link rel="stylesheet" href="style.css">
+<style>
+   .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .marquee-container {
+    overflow: hidden;
+    white-space: nowrap;
+    height: auto;
+  }
+
+  .marquee {
+    animation: marqueeAnimation 10s linear infinite;
+  }
+
+  @keyframes marqueeAnimation {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+
+  #header-0 {
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+  <div class="angry-grid">
+    <div id="header-0" class="marquee-container">
+      <marquee behavior="scroll" direction="left">HEADER</marquee>
+    </div>
+    <div id="search-1">&nbsp;search</div>
+    <div id="menu-2">
+      <table>
+        <tr>
+          <th>Menu</th>
+        </tr>
+        <tr>
+          <td><a href="logo.html">Home</a></td>
+        </tr>
+        <tr>
+          <td><a href="saya.html">About</a></td>
+        </tr>
+        <tr>
+          <td><a href="https://www.wikipedia.org/">tutorial</a></td>
+        </tr>
+        <tr class="dropdown">
+          <td>
+            <span>List</span>
+            <div class="dropdown-content">
+              <a href="profil.html">Profile Sekolah</a>
+              <a href="jurusan.html">Jurusan</a>
+              <a href="fasilitas.html">Fasilitas</a>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    
+    <div id="content-4" class="dropdown">
+      <h2>middle column</h2>
+      <span>Dashboard</span>
+      <div class="dropdown-content">
+        <a href="#">home </a>
+        <a href="#">about </a>
+        <a href="#">list </a>
+      </div>
+    </div>
+     <div id="middle-3">
+        
+            <form method="POST" action="cek.php">
+              <label for="alas">Alas:</label>
+              <input type="text" name="alas" id="alas">
+              <label for="tinggi">Tinggi:</label>
+              <input type="text" name="tinggi" id="tinggi">
+              <input type="submit" value="Hitung">
+          </form>
+          
+     </div>
+ 
+  </div>
+<script src="js/cek2/script.js"></script>
+<script>
+  document.getElementById('header-0').addEventListener('mouseenter', function() {
+    this.style.transform = 'rotateY(360deg)';
+  });
+
+  document.getElementById('header-0').addEventListener('mouseleave', function() {
+    this.style.transform = 'rotateY(0deg)';
+  });
+</script>
+</body>
+</html>
